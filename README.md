@@ -50,6 +50,16 @@ php artisan db:seed
 - テストユーザー4 mail:user4@example.com/pass:password444
 - テストユーザー5 mail:user5@example.com/pass:password555
 
+## 初期テストユーザー
+
+| 名前            | メールアドレス         | パスワード     |
+|-----------------|------------------------|----------------|
+| テストユーザー1 | user1@example.com      | password111    |
+| テストユーザー2 | user2@example.com      | password222    |
+| テストユーザー3 | user3@example.com      | password333    |
+| テストユーザー4 | user4@example.com      | password444    |
+| テストユーザー5 | user5@example.com      | password555    |
+
 ## 使用技術(実行環境)
 - PHP8.3.0
 - Laravel8.83.27

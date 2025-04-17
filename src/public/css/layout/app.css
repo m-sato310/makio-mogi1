@@ -1,0 +1,52 @@
+.header {
+    background-color: #000;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+.header-center form {
+    width: 100%;
+    min-width: 400px;
+}
+
+.header-center input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+.header-right a {
+    margin-left: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-right a:not(.sell-link) {
+    color: #fff;
+}
+
+.header-right .sell-link {
+    background-color: #fff;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+}
+
+.header-right .sell-link:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}

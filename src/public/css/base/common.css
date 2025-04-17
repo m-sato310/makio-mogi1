@@ -1,0 +1,39 @@
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.form-group button:hover {
+    background-color: #c62828;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}

@@ -1,0 +1,67 @@
+.register-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 24px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.register-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.form-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.form-link a {
+    color: #4e92d6;
+    text-decoration: none;
+}
+
+.form-link a:hover {
+    color: #0051a8;
+}
+
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .register-container {
+        margin: 40px 16px;
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    .form-link {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .register-container {
+        max-width: 600px;
+        padding: 64px 40px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-group input {
+        font-size: 17px;
+        padding: 14px 12px;
+    }
+
+    .form-group button {
+        font-size: 17px;
+        padding: 14px;
+    }
+
+    .form-link {
+        margin-top: 32px;
+    }
+}

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// ↓これは仮のルート
 Route::get('/', function () {
-    return view('welcome');
+    return view('items.index');
 });
+
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/mypage/profile', [ProfileController::class, 'edit']);
+Route::post('/mypage/profile', [ProfileController::class, 'update']);
+
+Route::post('/login', [LoginController::class, 'store']);

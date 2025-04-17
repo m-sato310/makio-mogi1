@@ -44,7 +44,11 @@ php artisan db:seed
 ```
 
 ## 初期テストユーザー
-- test@example.com/pass:
+- テストユーザー1 mail:user1@example.com/pass:password111
+- テストユーザー2 mail:user2@example.com/pass:password222
+- テストユーザー3 mail:user3@example.com/pass:password333
+- テストユーザー4 mail:user4@example.com/pass:password444
+- テストユーザー5 mail:user5@example.com/pass:password555
 
 ## 使用技術(実行環境)
 - PHP8.3.0

@@ -16,6 +16,6 @@ class LoginController extends Controller
             return back()->withErrors(['email' => 'ログイン情報が登録されていません'])->withInput();
         }
 
-        return redirect('/mypage?tab=buy');
+        return redirect('/?tab=mylist');
     }
 }

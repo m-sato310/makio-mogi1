@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
@@ -15,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// ↓これは仮のルート
-Route::get('/', function () {
-    return view('items.index');
-});
+
+Route::get('/', [ItemController::class, 'index']);
 
 Route::post('/register', [RegisterController::class, 'store']);
 

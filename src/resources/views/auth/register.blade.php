@@ -10,7 +10,7 @@
 <div class="register-container">
     <h2>会員登録</h2>
 
-    <form action="/register" method="POST">
+    <form action="/register" method="POST" novalidate>
         @csrf
 
         <div class="form-group">

@@ -21,8 +21,8 @@
 
             @if (!(Request::is('login') || Request::is('register')))
             <div class="header-center">
-                <form action="/search" method="GET">
-                    <input type="text" name="keyword" placeholder="なにをお探しですか？">
+                <form action="/" method="GET">
+                    <input type="text" name="keyword" placeholder="なにをお探しですか？" value="{{ request('keyword') }}">
                 </form>
             </div>
             @endif

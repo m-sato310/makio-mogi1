@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ItemSeeder::class,
             ItemCategorySeeder::class,
+            LikeSeeder::class,
+            PurchaseSeeder::class,
         ]);
     }
 }

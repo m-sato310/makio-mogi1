@@ -25,3 +25,8 @@ Route::get('/mypage/profile', [ProfileController::class, 'edit']);
 Route::post('/mypage/profile', [ProfileController::class, 'update']);
 
 Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/item/{item}', [ItemController::class, 'show']);
+Route::post('/item/{item}/comment', [ItemController::class, 'comment'])->middleware('auth');
+Route::post('/item/{item}/like', [ItemController::class, 'like'])->middleware('auth');
+Route::post('/item/{item}/unlike', [ItemController::class, 'unlike'])->middleware('auth');

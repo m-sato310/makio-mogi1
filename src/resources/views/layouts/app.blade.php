@@ -43,7 +43,7 @@
                 @guest
                 <a href="/login">ログイン</a>
                 <a href="/mypage">マイページ</a>
-                <a href="/sell">出品</a>
+                <a class="sell-link" href="/sell">出品</a>
                 @endguest
                 @endif
             </div>

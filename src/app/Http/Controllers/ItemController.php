@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentRequest;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,5 +34,44 @@ class ItemController extends Controller
         }
 
         return view('items.index', compact('items', 'tab', 'keyword'));
+    }
+
+    public function show(Item $item)
+    {
+        $isPurchased = $item->purchase()->exists();
+
+        $comments = $item->comments()->with('user')->latest()->get();
+
+        $liked = auth()->check() ? $item->likes()->where('user_id', auth()->id())->exists() : false;
+
+        return view('items.show', compact('item', 'comments', 'isPurchased', 'liked'));
+    }
+
+    public function comment(CommentRequest $request, Item $item)
+    {
+        $item->comments()->create([
+            'user_id' => auth()->id(),
+            'content' => $request->validated()['content'],
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function like(Item $item)
+    {
+        if (!$item->likes()->where('user_id', auth()->id())->exists()) {
+            $item->likes()->attach(auth()->id());
+        }
+
+        return back();
+    }
+
+    public function unlike(Item $item)
+    {
+        if ($item->likes()->where('user_id', auth()->id())->exists()) {
+            $item->likes()->detach(auth()->id());
+        }
+
+        return back();
     }
 }

@@ -54,6 +54,12 @@
     background-color: #fff;
 }
 
+.item-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .item-image-wrapper {
     position: relative;
     width: 100%;
@@ -86,6 +92,7 @@
     font-size: 14px;
     text-align: left;
 }
+
 
 
 @media (min-width: 768px) and (max-width: 850px) {

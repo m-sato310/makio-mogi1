@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Like;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class LikeSeeder extends Seeder
 {
@@ -14,19 +14,19 @@ class LikeSeeder extends Seeder
      */
     public function run()
     {
-        Like::create([
-            'user_id' => 1,
-            'item_id' => 2,
-        ]);
-
-        Like::create([
-            'user_id' => 1,
-            'item_id' => 3,
-        ]);
-
-        Like::create([
-            'user_id' => 2,
-            'item_id' => 5,
+        DB::table('likes')->insert([
+            [
+                'user_id' => 1,
+                'item_id' => 2,
+            ],
+            [
+                'user_id' => 1,
+                'item_id' => 3,
+            ],
+            [
+                'user_id' => 2,
+                'item_id' => 5,
+            ],
         ]);
     }
 }

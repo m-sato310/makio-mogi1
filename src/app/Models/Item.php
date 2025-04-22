@@ -38,8 +38,8 @@ class Item extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function likedUsers()
+    public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+        return $this->belongsToMany(User::class, 'likes');
     }
 }

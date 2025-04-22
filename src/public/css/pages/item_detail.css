@@ -1,0 +1,351 @@
+.item-detail-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.item-detail-wrapper {
+    display: flex;
+    gap: 60px;
+}
+
+.item-image-area {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+}
+
+.item-image-area img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.sold-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    padding: 4px 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.item-info-area {
+    flex: 1;
+    max-width: 600px;
+}
+
+.item-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.brand {
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.item-icons {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 16px;
+    text-align: center;
+    padding-left: 12px;
+}
+
+.item-icons .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.like-button:hover {
+    opacity: 0.7;
+}
+
+.icon.liked {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(86%) saturate(1957%) hue-rotate(340deg) brightness(90%) contrast(100%);
+}
+
+.icon.liked:hover {
+    filter: brightness(1.2) sepia(1) hue-rotate(0deg) saturate(200%);
+}
+
+.item-icons .icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.item-icons span {
+    display: block;
+    font-size: 14px;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    background-color: #e53935;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.buy-button.sold {
+    background-color: #999;
+    cursor: default;
+}
+
+.item-description-section,
+.item-meta-section,
+.comments-section,
+.comment-form {
+    margin-top: 32px;
+}
+
+.item-description-section p,
+.item-meta-section p {
+    margin-top: 12px;
+}
+
+.item-category {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.category-label {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.category-tag {
+    background-color: #f2f2f2;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.item-condition {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.condition-label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.condition-value {
+    margin: 0;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.comment-user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+.comment-user {
+    font-weight: bold;
+}
+
+.comment-content {
+    margin-left: 52px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-bottom: 12px;
+    min-height: 120px;
+}
+
+.comment-form button {
+    display: block;
+    width: 100%;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #c62828;
+}
+
+.comment-form a {
+    display: inline-block;
+    width: 100%;
+    background-color: #e53935;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.comment-form a:hover {
+    background-color: #c62828;
+}
+
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .item-detail-wrapper {
+        gap: 32px;
+    }
+
+    .item-image-area,
+    .item-info-area {
+        max-width: 50%;
+    }
+
+    .item-name {
+        font-size: 20px;
+    }
+
+    .brand {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .item-icons {
+        gap: 24px;
+        padding-left: 8px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .item-icons span {
+        font-size: 13px;
+    }
+
+    .buy-button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .item-description-section,
+    .item-meta-section,
+    .comments-section,
+    .comment-form {
+        margin-top: 24px;
+    }
+
+    .comment-form textarea {
+        min-height: 100px;
+        font-size: 13px;
+    }
+
+    .comment-form button,
+    .comment-form a {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+
+@media (min-width: 1400px) and (max-width: 1540px) {
+    .item-detail-container {
+        max-width: 95%;
+    }
+
+    .item-image-area,
+    .item-info-area {
+        max-width: 48%;
+    }
+
+    .item-detail-wrapper {
+        gap: 48px;
+    }
+
+    .item-name {
+        font-size: 26px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .buy-button {
+        font-size: 17px;
+    }
+
+    .comment-form textarea {
+        min-height: 130px;
+    }
+}

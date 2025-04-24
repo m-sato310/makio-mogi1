@@ -3,6 +3,7 @@
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,6 @@ Route::get('/item/{item}', [ItemController::class, 'show']);
 Route::post('/item/{item}/comment', [ItemController::class, 'comment'])->middleware('auth');
 Route::post('/item/{item}/like', [ItemController::class, 'like'])->middleware('auth');
 Route::post('/item/{item}/unlike', [ItemController::class, 'unlike'])->middleware('auth');
+
+Route::get('/purchase/{item}', [PurchaseController::class, 'create'])->middleware('auth');
+Route::post('/purchase/{item}', [PurchaseController::class, 'store'])->middleware('auth');

@@ -1,3 +1,7 @@
+@php
+    $mode = $mode ?? 'edit';
+@endphp
+
 @extends('layouts.app')
 
 @section('title', 'プロフィール設定')
@@ -10,7 +14,7 @@
 <div class="profile-container">
     <h2>プロフィール設定</h2>
 
-    <form action="/mypage/profile" method="POST" enctype="multipart/form-data">
+    <form action="{{ $mode === 'setup' ? '/register/profile' : '/mypage/profile' }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group image-upload-group">
@@ -18,7 +22,7 @@
                 @if (Auth::user()->profile_image)
                 <img src="{{ asset('storage/profile/' . Auth::user()->profile_image) }}" alt="プロフィール画像">
                 @else
-                <img src="{{ asset('images/noimage.png') }}" alt="デフォルト画像">
+                <img src="{{ asset('images/noimage.jpg') }}" alt="デフォルト画像">
                 @endif
             </div>
             <div class="image-upload-button">

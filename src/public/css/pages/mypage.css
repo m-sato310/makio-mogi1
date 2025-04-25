@@ -1,3 +1,63 @@
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 40px;
+}
+
+.profile-left {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 200px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.profile-center {
+    position: absolute;
+    left: 43%;
+    transform: translateX(0);
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.profile-right {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 80px;
+    /* align-items: center; */
+}
+
+.edit-button {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #e53935;
+    border-radius: 4px;
+    color: #e53935;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #e53935;
+    color: #fff;
+}
+
 .item-tab-wrapper {
     width: 50%;
     display: flex;
@@ -49,15 +109,15 @@
     width: 100%;
 }
 
-.item-card {
-    position: relative;
-    background-color: #fff;
-}
-
 .item-card-link {
     text-decoration: none;
     color: inherit;
     display: block;
+}
+
+.item-card {
+    position: relative;
+    background-color: #fff;
 }
 
 .item-image-wrapper {
@@ -96,8 +156,41 @@
 }
 
 
-
 @media (min-width: 768px) and (max-width: 850px) {
+    .profile-header {
+        padding: 0 16px;
+    }
+
+    .profile-left {
+        width: auto;
+        padding-right: 8px;
+        justify-content: flex-end;
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .profile-center {
+        width: 35%;
+        text-align: left;
+        position: static;
+        transform: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .profile-right {
+        width: 30%;
+        justify-content: flex-end;
+        padding-left: 0;
+    }
+
+    .user-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .item-tab-wrapper,
     .item-tab-nav {
         width: 80%;
@@ -119,7 +212,6 @@
     }
 }
 
-
 @media (min-width: 1400px) and (max-width: 1540px) {
     .item-tab-wrapper,
     .item-tab-nav {
@@ -132,8 +224,6 @@
     }
 
     .item-list-container {
-        /* padding: 40px 20px; */
-        /* overflow-x: hidden; */
         max-width: 100%;
     }
 

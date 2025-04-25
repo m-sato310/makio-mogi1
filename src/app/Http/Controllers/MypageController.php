@@ -4,18 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddressRequest;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileController extends Controller
+class MypageController extends Controller
 {
-    public function edit()
+    public function index(Request $request)
     {
-        return view('mypage.profile');
+        $user = Auth::user();
+
+        $tab = $request->query('tab', 'sell');
+
+        if ($tab === 'buy') {
+            $items = $user->purchases()->with('item')->latest()->get()->pluck('item');
+        } else {
+            $items = $user->items()->latest()->get();
+        }
+
+        return view('mypage.index', compact('user', 'items', 'tab'));
     }
 
-    public function update(AddressRequest $request)
+    public function editProfile()
     {
+        $user = auth()->user();
+        return view('mypage.profile', compact('user'))->with('mode', 'edit');
+    }
 
+    public function updateProfile(AddressRequest $request, ProfileRequest $profileRequest)
+    {
         $user = Auth::user();
 
         $profileRequest = app(ProfileRequest::class);
@@ -36,6 +52,6 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect('/mypage?tab=buy');
+        return redirect('/?tab=mylist');
     }
 }

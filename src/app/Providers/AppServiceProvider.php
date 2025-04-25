@@ -25,18 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function () {
-            if (Auth::check()) {
-                $user = Auth::user();
-
-                if (
-                    is_null($user->zipcode) &&
-                    is_null($user->address) &&
-                    Request::path() !== 'mypage/profile'
-                ) {
-                    redirect('/mypage/profile')->send();
-                }
-            }
-        });
+        //
     }
 }

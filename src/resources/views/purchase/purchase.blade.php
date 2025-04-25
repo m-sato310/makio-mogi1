@@ -30,10 +30,13 @@
                 <div class="form-group">
                     <label for="payment_method">支払い方法</label>
                     <select name="payment_method" id="payment_method">
-                        <option value="" disabled selected hidden>選択してください</option>
+                        <option value="" disabled selected>選択してください</option>
                         <option value="コンビニ払い">コンビニ払い</option>
                         <option value="カード支払い">カード支払い</option>
                     </select>
+                    @error('payment_method')
+                        <p class="error">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <hr class="section-divider">
@@ -59,7 +62,7 @@
 
                     <div class="summary-row">
                         <span class="summary-label">支払い方法</span>
-                        <span class="summary-value" id="selected-method">コンビニ支払い</span>
+                        <span class="summary-value" id="selected-method">未選択</span>
                     </div>
                 </div>
 

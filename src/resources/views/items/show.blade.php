@@ -74,7 +74,6 @@
                         @else
                         <img class="comment-user-icon" src="{{ asset('images/noimage.jpg') }}" alt="デフォルト画像">
                         @endif
-                        <!-- <img class="comment-user-icon" src="{{ asset('storage/profile/' . $comment->user->profile_image) }}" alt="{{ $comment->user->name }}"> -->
                         <p class="comment-user">{{ $comment->user->name }}</p>
                     </div>
                     <p class="comment-content">{{ $comment->content }}</p>

@@ -1,0 +1,107 @@
+.sell-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sell-form-wrapper h1 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 45px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+hr {
+    margin-bottom: 24px;
+}
+
+.image-upload-box {
+    border: 2px dotted #ccc;
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.image-upload-box label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid red;
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.image-upload-box label:hover {
+    background-color: #e53935;
+    color: #fff;
+}
+
+.image-upload-box input[type="file"] {
+    display: none;
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.category-tag {
+    display: inline-block;
+    border: 2px solid red;
+    color: red;
+    background-color: white;
+    border-radius: 18px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.category-tags input[type="checkbox"] {
+    display: none;
+}
+
+.category-tags input[type="checkbox"]:checked + .category-tag {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+}
+
+.sell-form-wrapper select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    /* background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 30px 30px;
+    appearance: none; */
+}
+
+.sell-form-wrapper textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize:none;
+}

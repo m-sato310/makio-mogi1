@@ -57,6 +57,10 @@
     color: #000;
 }
 
+.hidden {
+    display: none;
+}
+
 .main {
     margin-top: 40px;
 }

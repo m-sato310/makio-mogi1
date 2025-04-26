@@ -52,6 +52,6 @@ class MypageController extends Controller
 
         $user->save();
 
-        return redirect('/?tab=mylist');
+        return redirect('/mypage');
     }
 }

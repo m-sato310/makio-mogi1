@@ -40,4 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/purchase/{item}', [PurchaseController::class, 'store']);
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'editShippingAddress']);
     Route::post('/purchase/address/{item}', [PurchaseController::class, 'storeShippingAddress']);
+
+    Route::get('/sell', [ItemController::class, 'create']);
+    Route::post('/sell', [ItemController::class, 'store']);
 });

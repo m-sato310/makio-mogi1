@@ -35,7 +35,7 @@
                 <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
                 <a href="/mypage">マイページ</a>
                 <a class="sell-link" href="/sell">出品</a>
-                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                <form class="hidden" id="logout-form" action="/logout" method="POST">
                     @csrf
                 </form>
                 @endauth

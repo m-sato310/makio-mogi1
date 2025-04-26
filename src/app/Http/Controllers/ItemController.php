@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\ExhibitionRequest;
+use App\Models\Category;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,5 +75,34 @@ class ItemController extends Controller
         }
 
         return back();
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+
+        return view('sell.sell', compact('categories'));
+    }
+
+    public function store(ExhibitionRequest $request)
+    {
+        $validated = $request->validated();
+
+        if ($request->hasFile('image_path')) {
+            // $path = $request->file('image_path')->store('items', 'public');
+            // $validated['image_path'] = $path;
+            $filename = $request->file('image_path')->hashName();
+            $request->file('image_path')->storeAs('items', $filename, 'public');
+            $validated['image_path'] = $filename;
+        }
+
+        $validated['user_id'] = Auth::id();
+        $item = Item::create($validated);
+
+        if (isset($validated['categories'])) {
+            $item->categories()->sync($validated['categories']);
+        }
+
+        return redirect('/mypage');
     }
 }

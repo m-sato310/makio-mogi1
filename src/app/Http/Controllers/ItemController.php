@@ -89,8 +89,6 @@ class ItemController extends Controller
         $validated = $request->validated();
 
         if ($request->hasFile('image_path')) {
-            // $path = $request->file('image_path')->store('items', 'public');
-            // $validated['image_path'] = $path;
             $filename = $request->file('image_path')->hashName();
             $request->file('image_path')->storeAs('items', $filename, 'public');
             $validated['image_path'] = $filename;

@@ -7,6 +7,8 @@ use App\Http\Requests\ShippingAddressRequest;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 
 class PurchaseController extends Controller
 {
@@ -35,7 +37,26 @@ class PurchaseController extends Controller
 
         $request->session()->forget('custom_address');
 
-        return redirect('/');
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'product_data' => [
+                        'name' => $item->name,
+                    ],
+                    'unit_amount' => $item->price,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => url('/'),
+            'cancel_url' => url('/'),
+            ]);
+
+        return redirect($session->url);
     }
 
     public function editShippingAddress(Item $item)

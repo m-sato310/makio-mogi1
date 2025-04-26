@@ -88,12 +88,6 @@ hr {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-
-    /* background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 30px 30px;
-    appearance: none; */
 }
 
 .sell-form-wrapper textarea {
@@ -104,4 +98,67 @@ hr {
     border-radius: 4px;
     box-sizing: border-box;
     resize:none;
+}
+
+
+@media (min-width: 768px) and (max-width: 850px) {
+
+    .sell-form-wrapper {
+        padding: 16px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .image-upload-box {
+        padding: 30px 0;
+    }
+
+    .category-tags {
+        gap: 6px;
+    }
+
+    .category-tag {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .sell-form-wrapper select,
+    .sell-form-wrapper textarea,
+    .sell-form-wrapper input[type="text"] {
+        font-size: 13px;
+        padding: 7px;
+    }
+}
+
+@media (min-width:1400px) and (max-width:1540px) {
+
+    .sell-form-wrapper {
+        max-width: 700px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .image-upload-box {
+        padding: 50px 0;
+    }
+
+    .category-tags {
+        gap: 10px;
+    }
+
+    .category-tag {
+        font-size: 15px;
+        padding: 7px 14px;
+    }
+
+    .sell-form-wrapper select,
+    .sell-form-wrapper textarea,
+    .sell-form-wrapper input[type='text'] {
+        font-size: 15px;
+        padding: 10px;
+    }
 }

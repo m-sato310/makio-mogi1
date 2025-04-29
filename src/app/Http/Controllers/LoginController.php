@@ -16,6 +16,11 @@ class LoginController extends Controller
             return back()->withErrors(['email' => 'ログイン情報が登録されていません'])->withInput();
         }
 
+        if (is_null(Auth::user()->email_verified_at)) {
+            Auth::logout();
+            return back()->withErrors(['email' => 'メールアドレスの認証が完了していません'])->withInput();
+        }
+
         return redirect('/?tab=mylist');
     }
 }

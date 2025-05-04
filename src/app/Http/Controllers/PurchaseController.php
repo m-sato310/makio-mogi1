@@ -22,7 +22,9 @@ class PurchaseController extends Controller
             'building' => $user->building,
         ];
 
-        return view('purchase.purchase', compact('item', 'address'));
+        $payment_method = session('payment_method');
+
+        return view('purchase.purchase', compact('item', 'address', 'payment_method'));
     }
 
     public function store(PurchaseRequest $request, Item $item)
@@ -59,11 +61,12 @@ class PurchaseController extends Controller
         return redirect($session->url);
     }
 
-    public function editShippingAddress(Item $item)
+    public function editShippingAddress(Item $item, Request $request)
     {
         $user = auth()->user();
+        $payment_method = $request->payment_method ?? session('payment_method');
 
-        return view('purchase.address', compact('item', 'user'));
+        return view('purchase.address', compact('item', 'user', 'payment_method'));
     }
 
     public function storeShippingAddress(ShippingAddressRequest $request, Item $item)
@@ -73,7 +76,8 @@ class PurchaseController extends Controller
                 'zipcode' => $request->zipcode,
                 'address' => $request->address,
                 'building' => $request->building,
-            ]
+            ],
+            'payment_method' => $request->payment_method,
             ]);
 
             return redirect("/purchase/{$item->id}");

@@ -28,12 +28,12 @@
                         <button class="like-button" type="submit">
                             <img class="icon {{ $liked ? 'liked' : '' }}" src="{{ asset('images/like.png') }}" alt="星型アイコン">
                         </button>
-                        <span>{{ $item->likes()->count() }}</span>
+                        <span class="like-count">{{ $item->likes()->count() }}</span>
                     </form>
                 </div>
                 <div class="icon-wrapper">
                     <img class="icon" src="{{ asset('images/comment.png') }}" alt="吹き出し型アイコン">
-                    <span>{{ $item->comments->count() }}</span>
+                    <span class="comment-count">{{ $item->comments->count() }}</span>
                 </div>
             </div>
 
@@ -83,9 +83,9 @@
 
             <div class="comment-form">
                 <h2>商品へのコメント</h2>
-                <form action="/item/{{ $item->id }}/comment" method="POST">
+                <form action="/item/{{ $item->id }}/comment" method="POST" novalidate>
                     @csrf
-                    <textarea name="content" rows="3" required maxlength="255"></textarea>
+                    <textarea name="content" rows="3"></textarea>
                     @error('content')
                     <p class="error">{{ $message }}</p>
                     @enderror

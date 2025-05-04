@@ -18,7 +18,9 @@ class ItemController extends Controller
 
         if ($tab === 'mylist') {
             if (Auth::check()) {
-                $items = Auth::user()->likedItems()->when($keyword, function ($query) use ($keyword) {
+                $items = Auth::user()->likedItems()
+                ->where('items.user_id', '!=', Auth::id())
+                ->when($keyword, function ($query) use ($keyword) {
                     return $query->where('name', 'like', '%' . $keyword . '%');
                 })
                 ->get();
@@ -27,7 +29,8 @@ class ItemController extends Controller
             }
         } else {
             $items = Item::when(Auth::check(), function ($query) {
-                return $query->where('user_id', '!=', Auth::id());
+                return $query
+                ->where('user_id', '!=', Auth::id());
             })
             ->when($keyword, function ($query) use ($keyword) {
                 return $query->where('name', 'like', '%' . $keyword . '%');

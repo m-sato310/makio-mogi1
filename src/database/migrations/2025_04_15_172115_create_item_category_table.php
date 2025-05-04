@@ -17,6 +17,7 @@ class CreateItemCategoryTable extends Migration
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->unique(['item_id', 'category_id']);
+            $table->timestamps();
         });
     }
 

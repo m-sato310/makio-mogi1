@@ -30,6 +30,7 @@
     cursor: pointer;
     margin-bottom: 20px;
     border-radius: 6px;
+    text-decoration: none;
 }
 
 .resend-link {

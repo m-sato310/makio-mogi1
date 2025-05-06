@@ -56,7 +56,7 @@ php artisan db:seed
 ## メール認証機能(新規ユーザー登録時)
 使用サービス:Mailtrap https://mailtrap.io/
 
-### ⚙️ メール送信設定（.env）
+### メール送信設定
 以下の設定を .env に記載
 
 ``` text
@@ -74,7 +74,8 @@ MAIL_FROM_NAME="coachtechフリマ"
 ``` bash
 php artisan config:cache
 ```
-
+メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。
+ログイン後にinboxからメールを確認してください。
 
 ## 使用技術(実行環境)
 - PHP8.3.0

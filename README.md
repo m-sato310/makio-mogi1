@@ -53,6 +53,29 @@ php artisan db:seed
 | テストユーザー4 | user4@example.com      | password444    |
 | テストユーザー5 | user5@example.com      | password555    |
 
+## メール認証機能(新規ユーザー登録時)
+使用サービス:Mailtrap https://mailtrap.io/
+
+### ⚙️ メール送信設定（.env）
+以下の設定を .env に記載
+
+``` text
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=（Mailtrapのダッシュボードで確認）
+MAIL_PASSWORD=（同上）
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=coachtech@example.com
+MAIL_FROM_NAME="coachtechフリマ"
+```
+
+設定後に下記コマンドを実行
+``` bash
+php artisan config:cache
+```
+
+
 ## 使用技術(実行環境)
 - PHP8.3.0
 - Laravel8.83.27

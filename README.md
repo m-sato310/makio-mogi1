@@ -74,7 +74,7 @@ MAIL_FROM_NAME="coachtechフリマ"
 ``` bash
 php artisan config:cache
 ```
-メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。
+メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。  
 ログイン後にinboxからメールを確認してください。
 
 ## 使用技術(実行環境)

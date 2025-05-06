@@ -27,7 +27,7 @@ class AddressRequest extends FormRequest
             'name' => 'required|string|max:255',
             'zipcode' => 'required|regex:/^\d{3}-\d{4}$/',
             'address' => 'required|string',
-            'building' => 'required|string',
+            'building' => 'nullable|string',
         ];
     }
 
@@ -38,7 +38,6 @@ class AddressRequest extends FormRequest
             'zipcode.required' => '郵便番号を入力してください',
             'zipcode.regex' => '郵便番号はハイフンありの8文字（例：123-4567）で入力してください',
             'address.required' => '住所を入力してください',
-            'building.required' => '建物名を入力してください',
         ];
     }
 }

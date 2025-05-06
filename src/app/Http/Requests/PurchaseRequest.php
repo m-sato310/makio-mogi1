@@ -27,7 +27,7 @@ class PurchaseRequest extends FormRequest
             'payment_method' => 'required',
             'zipcode' => 'required|string',
             'address' => 'required|string',
-            'building' => 'required|string',
+            'building' => 'nullable|string',
         ];
     }
 

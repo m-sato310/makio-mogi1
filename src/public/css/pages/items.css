@@ -120,6 +120,34 @@
 }
 
 
+@media (min-width: 851px) and (max-width: 1399px) {
+    .item-tab-wrapper,
+    .item-tab-nav {
+        width: 70%;
+    }
+
+    .item-tab-nav a {
+        font-size: 17px;
+        padding: 10px 28px;
+    }
+
+    .item-list-container {
+        padding: 40px 30px;
+        max-width: 100%;
+    }
+
+    .item-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .item-name {
+        font-size: 13px;
+        padding: 6px;
+    }
+}
+
+
 @media (min-width: 1400px) and (max-width: 1540px) {
     .item-tab-wrapper,
     .item-tab-nav {

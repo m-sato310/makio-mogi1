@@ -80,14 +80,14 @@ class ItemController extends Controller
         return back();
     }
 
-    public function create()
+    public function showItemExhibitionForm()
     {
         $categories = Category::all();
 
         return view('sell.sell', compact('categories'));
     }
 
-    public function store(ExhibitionRequest $request)
+    public function storeExhibition(ExhibitionRequest $request)
     {
         $validated = $request->validated();
 

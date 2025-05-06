@@ -34,9 +34,6 @@ class MypageController extends Controller
     {
         $user = Auth::user();
 
-        $profileRequest = app(ProfileRequest::class);
-        $profileRequest->validateResolved();
-
         if ($request->hasFile('profile_image')) {
             $image = $request->file('profile_image');
             $filename = uniqid() . '.' . $image->getClientOriginalExtension();

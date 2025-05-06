@@ -47,6 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'editShippingAddress']);
     Route::post('/purchase/address/{item}', [PurchaseController::class, 'storeShippingAddress']);
 
-    Route::get('/sell', [ItemController::class, 'create']);
-    Route::post('/sell', [ItemController::class, 'store']);
+    Route::get('/sell', [ItemController::class, 'showItemExhibitionForm']);
+    Route::post('/sell', [ItemController::class, 'storeExhibition']);
 });

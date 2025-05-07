@@ -51,6 +51,16 @@ hr {
     display: none;
 }
 
+.image-preview {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+
+    display: block;
+    margin: 0 auto 12px auto;
+}
+
 .category-tags {
     display: flex;
     flex-wrap: wrap;
@@ -101,7 +111,7 @@ hr {
 }
 
 
-@media (min-width: 768px) and (max-width: 850px) {
+/* @media (min-width: 768px) and (max-width: 850px) {
 
     .sell-form-wrapper {
         padding: 16px;
@@ -161,4 +171,4 @@ hr {
         font-size: 15px;
         padding: 10px;
     }
-}
+} */

@@ -62,7 +62,7 @@ MAIL_FROM_ADDRESS=coachtech@example.com
 MAIL_FROM_NAME="coachtechフリマ"
 ```
 
-3. 設定後に下記コマンドを実行
+3. 設定後にPHPコンテナ内で下記コマンドを実行
 ``` bash
 php artisan config:cache
 ```
@@ -81,9 +81,10 @@ STRIPE_KEY=（公開キー）
 STRIPE_SECRET=（シークレットキー）
 ```
 
-3. 設定後に下記コマンドをターミナルから実行
+3. 設定後にPHPコンテナ内で下記コマンドを実行
 ```
-docker-compose exec php composer require stripe/stripe-php
+composer require stripe/stripe-php
+php artisan config:cache
 ```
 ※商品購入画面の「購入する」ボタン押下で購入自体は完了し、Stripe決済画面はその後に表示だけされるよう実装しています。
 

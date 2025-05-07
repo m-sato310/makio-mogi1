@@ -16,6 +16,9 @@
         <div class="form-group">
             <label for="image_path">商品画像</label>
             <div class="image-upload-box">
+
+                <img id="image-preview" src="#" alt="プレビュー" style="display: none;" class="image-preview">
+
                 <label for="image_path">画像を選択する</label>
                 <input type="file" name="image_path" id="image_path">
             </div>
@@ -31,14 +34,14 @@
             <label>カテゴリー</label>
             <div class="category-tags">
                 @foreach ($categories as $category)
-                    <input type="checkbox" name="categories[]" id="category-{{ $category->id }}" value="{{ $category->id }}" {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'checked' : ''}}>
-                    <label class="category-tag" for="category-{{ $category->id }}">
-                        {{ $category->name }}
-                    </label>
+                <input type="checkbox" name="categories[]" id="category-{{ $category->id }}" value="{{ $category->id }}" {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'checked' : ''}}>
+                <label class="category-tag" for="category-{{ $category->id }}">
+                    {{ $category->name }}
+                </label>
                 @endforeach
             </div>
             @error('categories')
-                <div class="error">{{ $message }}</div>
+            <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -95,4 +98,26 @@
     </form>
 
 </div>
+
+@push('scripts')
+<script>
+    document.getElementById('image_path').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('image-preview');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                preview.src = event.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+            preview.src = '#';
+        }
+    });
+</script>
+@endpush
+
 @endsection

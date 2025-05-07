@@ -19,7 +19,7 @@
                 <a href="/"><img class="logo-img" src="{{ asset('images/logo.svg') }}" alt="ロゴ"></a>
             </div>
 
-            @if (!(Request::is('login') || Request::is('register')))
+            @if (!(Request::is('login') || Request::is('register') || Request::is('verify-email')))
             <div class="header-center">
                 <form action="/" method="GET">
                     <input type="text" name="keyword" placeholder="なにをお探しですか？" value="{{ request('keyword') }}">
@@ -28,7 +28,7 @@
             @endif
 
             <div class="header-right">
-                @if (Request::is('login') || Request::is('register'))
+                @if (Request::is('login') || Request::is('register') || Request::is('verify-email'))
 
                 @else
                 @auth

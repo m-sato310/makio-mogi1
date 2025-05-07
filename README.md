@@ -43,20 +43,12 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## 初期テストユーザー
-
-| 名前            | メールアドレス         | パスワード     |
-|-----------------|------------------------|----------------|
-| テストユーザー1 | user1@example.com      | password111    |
-| テストユーザー2 | user2@example.com      | password222    |
-| テストユーザー3 | user3@example.com      | password333    |
-| テストユーザー4 | user4@example.com      | password444    |
-| テストユーザー5 | user5@example.com      | password555    |
-
 ## メール認証機能(新規ユーザー登録時)
 使用サービス:Mailtrap https://mailtrap.io/
 
 ### メール送信設定
+Mailtrapのアカウントにログイン後、ダッシュボードからUsernameとPasswordを確認  
+
 以下の設定を .env に記載
 
 ``` text
@@ -76,6 +68,35 @@ php artisan config:cache
 ```
 メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。  
 ログイン後にinboxからメールを確認してください。
+
+## Stripe決済機能
+使用サービス:Stripe https://stripe.com/jp
+
+### Stripe決済設定
+stripeのアカウントにログイン後、ダッシュボードから「テストモード」のAPIキー（公開キー・シークレットキー）を取得
+
+以下の設定を.envに記載
+
+``` text
+STRIPE_KEY=（公開キー）
+STRIPE_SECRET=（シークレットキー）
+```
+
+設定後に下記コマンドをターミナルから実行
+```
+docker-compose exec php composer require stripe/stripe-php
+```
+※商品購入画面の「購入する」ボタン押下で購入自体は完了し、Stripe決済画面はその後に表示だけされるよう実装しています。
+
+## 初期テストユーザー
+
+| 名前            | メールアドレス         | パスワード     |
+|-----------------|------------------------|----------------|
+| テストユーザー1 | user1@example.com      | password111    |
+| テストユーザー2 | user2@example.com      | password222    |
+| テストユーザー3 | user3@example.com      | password333    |
+| テストユーザー4 | user4@example.com      | password444    |
+| テストユーザー5 | user5@example.com      | password555    |
 
 ## 使用技術(実行環境)
 - PHP8.3.0

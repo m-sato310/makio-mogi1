@@ -47,9 +47,9 @@ php artisan db:seed
 使用サービス:Mailtrap https://mailtrap.io/
 
 ### メール送信設定
-Mailtrapのアカウントにログイン後、ダッシュボードからUsernameとPasswordを確認  
+1. Mailtrapのアカウントにログイン後、ダッシュボードからUsernameとPasswordを確認  
 
-以下の設定を .env に記載
+2. 以下の設定を .env に記載
 
 ``` text
 MAIL_MAILER=smtp
@@ -62,27 +62,26 @@ MAIL_FROM_ADDRESS=coachtech@example.com
 MAIL_FROM_NAME="coachtechフリマ"
 ```
 
-設定後に下記コマンドを実行
+3. 設定後に下記コマンドを実行
 ``` bash
 php artisan config:cache
 ```
-メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。  
-ログイン後にinboxからメールを確認してください。
+※メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。ログイン後にinboxからメールを確認してください。
 
 ## Stripe決済機能
 使用サービス:Stripe https://stripe.com/jp
 
 ### Stripe決済設定
-stripeのアカウントにログイン後、ダッシュボードから「テストモード」のAPIキー（公開キー・シークレットキー）を取得
+1. stripeのアカウントにログイン後、ダッシュボードから「テストモード」のAPIキー（公開キー・シークレットキー）を取得
 
-以下の設定を.envに記載
+2. 以下の設定を.envに記載
 
 ``` text
 STRIPE_KEY=（公開キー）
 STRIPE_SECRET=（シークレットキー）
 ```
 
-設定後に下記コマンドをターミナルから実行
+3. 設定後に下記コマンドをターミナルから実行
 ```
 docker-compose exec php composer require stripe/stripe-php
 ```

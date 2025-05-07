@@ -64,6 +64,10 @@ class ItemController extends Controller
 
     public function like(Item $item)
     {
+        if ($item->user_id === Auth::id()) {
+            abort(403, '自分の商品にはいいねできません');
+        }
+
         if (!$item->likes()->where('user_id', auth()->id())->exists()) {
             $item->likes()->attach(auth()->id());
         }
@@ -73,6 +77,10 @@ class ItemController extends Controller
 
     public function unlike(Item $item)
     {
+        if ($item->user_id === Auth::id()) {
+            abort(403, '自分の商品にはいいね解除できません');
+        }
+
         if ($item->likes()->where('user_id', auth()->id())->exists()) {
             $item->likes()->detach(auth()->id());
         }

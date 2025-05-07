@@ -14,6 +14,10 @@ class PurchaseController extends Controller
 {
     public function create(Item $item)
     {
+        if ($item->user_id === Auth::id()) {
+            abort(403, '自分の商品は購入できません');
+        }
+
         $user = Auth::user();
 
         $address = session('custom_address') ?? [
@@ -29,6 +33,10 @@ class PurchaseController extends Controller
 
     public function store(PurchaseRequest $request, Item $item)
     {
+        if ($item->user_id === Auth::id()) {
+            abort(403, '自分の商品は購入できません');
+        }
+
         Auth::user()->purchases()->create([
             'item_id' => $item->id,
             'payment_method' => $request->payment_method,

@@ -25,7 +25,7 @@
                 <div class="icon-wrapper">
                     <form action="/item/{{ $item->id }}/{{ $liked? 'unlike' : 'like' }}" method="POST">
                         @csrf
-                        <button class="like-button" type="submit">
+                        <button class="like-button" type="submit" {{ $item->user_id === Auth::id() ? 'disabled' : ''}}>
                             <img class="icon {{ $liked ? 'liked' : '' }}" src="{{ asset('images/like.png') }}" alt="星型アイコン">
                         </button>
                         <span class="like-count">{{ $item->likes()->count() }}</span>
@@ -37,10 +37,12 @@
                 </div>
             </div>
 
-            @if (!$isPurchased)
-            <a class="buy-button" href="/purchase/{{ $item->id }}">購入手続きへ</a>
-            @else
-            <div class="buy-button sold">Sold</div>
+            @if ($item->user_id !== Auth::id())
+                @if (!$isPurchased)
+                <a class="buy-button" href="/purchase/{{ $item->id }}">購入手続きへ</a>
+                @else
+                <div class="buy-button sold">Sold</div>
+                @endif
             @endif
 
             <div class="item-description-section">

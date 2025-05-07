@@ -16,9 +16,7 @@
         <div class="form-group">
             <label for="image_path">商品画像</label>
             <div class="image-upload-box">
-
-                <img id="image-preview" src="#" alt="プレビュー" style="display: none;" class="image-preview">
-
+                <img id="image-preview" src="#" alt="プレビュー" class="image-preview">
                 <label for="image_path">画像を選択する</label>
                 <input type="file" name="image_path" id="image_path">
             </div>

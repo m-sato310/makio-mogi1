@@ -87,6 +87,10 @@
     opacity: 0.7;
 }
 
+button[disabled] {
+    pointer-events: none;
+}
+
 .icon.liked {
     filter: brightness(0) saturate(100%) invert(27%) sepia(86%) saturate(1957%) hue-rotate(340deg) brightness(90%) contrast(100%);
 }

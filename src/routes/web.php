@@ -24,13 +24,14 @@ Route::get('/item/{item}', [ItemController::class, 'show']);
 Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'store']);
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/verify-email', [RegisterController::class, 'showVerifyEmail']);
     Route::post('/email/verification-notification', [RegisterController::class, 'sendVerificationEmail']);
     Route::post('/verify-email/check', [RegisterController::class, 'checkVerification']);
     Route::get('/email/verify/{id}/{hash}', [RegisterController::class, 'verifyEmail'])->name('verification.verify');
+});
 
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/register/profile', [RegisterController::class, 'createProfile']);
     Route::post('/register/profile', [RegisterController::class, 'storeProfile']);
 

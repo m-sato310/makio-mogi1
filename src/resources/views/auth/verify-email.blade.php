@@ -20,11 +20,6 @@
         メール認証を完了してください。
     </p>
 
-    <!-- <form action="/verify-email/check" method="POST">
-        @csrf
-        <button class="verify-button" type="submit">認証はこちらから</button>
-    </form> -->
-
     <a class="verify-button" href="https://mailtrap.io/" target="_blank">
         認証はこちらから
     </a>

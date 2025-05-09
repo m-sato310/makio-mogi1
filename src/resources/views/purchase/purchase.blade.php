@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="payment_method">支払い方法</label>
                     @php
-                    $paymentMethod = old('payment_method') ?? $payment_method ?? '';
+                        $paymentMethod = old('payment_method') ?? $payment_method ?? '';
                     @endphp
 
                     <select name="payment_method" id="payment_method">
@@ -39,7 +39,7 @@
                         <option value="カード支払い" {{ $paymentMethod == 'カード支払い' ? 'selected' : '' }}>カード支払い</option>
                     </select>
                     @error('payment_method')
-                    <p class="error">{{ $message }}</p>
+                        <p class="error">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -48,7 +48,6 @@
                 <div class="form-group delivery-group">
                     <label class="delivery-label">配送先</label>
                     <a class="change-address" href="/purchase/address/{{ $item->id }}">変更する</a>
-                    <!-- <a class="change-address" href="/purchase/address/{{ $item->id }}?payment_method={{ $paymentMethod }}">変更する</a> -->
 
                     <div class="delivery-info">
                         <p>〒{{ $address['zipcode'] }}</p>
@@ -57,6 +56,11 @@
                 </div>
 
                 <hr class="section-divider">
+
+                @if (session('error'))
+                    <p class="error">{{ session('error') }}</p>
+                @endif
+
             </div>
 
             <div class="purchase-right">
@@ -80,23 +84,23 @@
 @endsection
 
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const select = document.getElementById('payment_method');
-        const display = document.getElementById('selected-method');
-        const changeAddressLink = document.querySelector('.change-address');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const select = document.getElementById('payment_method');
+            const display = document.getElementById('selected-method');
+            const changeAddressLink = document.querySelector('.change-address');
 
-        if (select.value) {
-            display.textContent = select.value;
-        }
+            if (select.value) {
+                display.textContent = select.value;
+            }
 
-        select.addEventListener('change', function() {
-            display.textContent = this.value;
+            select.addEventListener('change', function() {
+                display.textContent = this.value;
 
-            const selectedPaymentMethod = this.value;
-            const currentHref = changeAddressLink.getAttribute('href').split('?')[0];
-            changeAddressLink.setAttribute('href', `${currentHref}?payment_method=${encodeURIComponent(selectedPaymentMethod)}`);
+                const selectedPaymentMethod = this.value;
+                const currentHref = changeAddressLink.getAttribute('href').split('?')[0];
+                changeAddressLink.setAttribute('href', `${currentHref}?payment_method=${encodeURIComponent(selectedPaymentMethod)}`);
+            });
         });
-    });
-</script>
+    </script>
 @endpush

@@ -87,7 +87,7 @@
     opacity: 0.7;
 }
 
-button[disabled] {
+.like-button.disabled {
     pointer-events: none;
 }
 
@@ -263,6 +263,22 @@ button[disabled] {
 
 .comment-form a:hover {
     background-color: #c62828;
+}
+
+.comment-form .error {
+    margin-top: -8px;
+    margin-bottom: 12px;
+}
+
+.guest-reminder {
+    margin-bottom: 14px;
+    font-size: 0.95em;
+    color: #555;
+    text-align: left;
+}
+.guest-reminder a {
+    color: #e60033;
+    text-decoration: underline;
 }
 
 

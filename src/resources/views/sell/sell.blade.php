@@ -21,7 +21,7 @@
                 <input type="file" name="image_path" id="image_path">
             </div>
             @error('image_path')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -32,14 +32,14 @@
             <label>カテゴリー</label>
             <div class="category-tags">
                 @foreach ($categories as $category)
-                <input type="checkbox" name="categories[]" id="category-{{ $category->id }}" value="{{ $category->id }}" {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'checked' : ''}}>
-                <label class="category-tag" for="category-{{ $category->id }}">
-                    {{ $category->name }}
-                </label>
+                    <input type="checkbox" name="categories[]" id="category-{{ $category->id }}" value="{{ $category->id }}" {{ (is_array(old('categories')) && in_array($category->id, old('categories'))) ? 'checked' : ''}}>
+                    <label class="category-tag" for="category-{{ $category->id }}">
+                        {{ $category->name }}
+                    </label>
                 @endforeach
             </div>
             @error('categories')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -53,7 +53,7 @@
                 <option value="状態が悪い" {{ old('condition') == '状態が悪い' ? 'selected' : ''}}>状態が悪い</option>
             </select>
             @error('condition')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -64,7 +64,7 @@
             <label for="name">商品名</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
             @error('name')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -77,7 +77,7 @@
             <label for="description">商品の説明</label>
             <textarea name="description" id="description" rows="5">{{ old('description') }}</textarea>
             @error('description')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -85,7 +85,7 @@
             <label for="price">販売価格(¥)</label>
             <input type="text" name="price" id="price" value="{{ old('price') }}">
             @error('price')
-            <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
 
@@ -98,24 +98,24 @@
 </div>
 
 @push('scripts')
-<script>
-    document.getElementById('image_path').addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        const preview = document.getElementById('image-preview');
+    <script>
+        document.getElementById('image_path').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('image-preview');
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                preview.src = event.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        } else {
-            preview.style.display = 'none';
-            preview.src = '#';
-        }
-    });
-</script>
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+                preview.src = '#';
+            }
+        });
+    </script>
 @endpush
 
 @endsection

@@ -12,9 +12,9 @@
     <div class="profile-header">
         <div class="profile-left">
             @if ($user->profile_image)
-            <img class="profile-image" src="{{ asset('storage/profile/' . $user->profile_image) }}" alt="プロフィール画像">
+                <img class="profile-image" src="{{ asset('storage/profile/' . $user->profile_image) }}" alt="プロフィール画像">
             @else
-            <img class="profile-image" src="{{ asset('images/noimage.jpg') }}" alt="デフォルト画像">
+                <img class="profile-image" src="{{ asset('images/noimage.jpg') }}" alt="デフォルト画像">
             @endif
         </div>
         <div class="profile-center">
@@ -37,17 +37,17 @@
     <div class="item-list-container">
         <div class="item-grid">
             @foreach ($items as $item)
-            <a class="item-card-link" href="/item/{{ $item->id }}">
-                <div class="item-card">
-                    <div class="item-image-wrapper">
-                        <img src="{{ asset('storage/items/' . $item->image_path) }}" alt="{{ $item->name }}">
-                        @if (isset($item->purchase))
-                        <div class="sold-overlay">Sold</div>
-                        @endif
+                <a class="item-card-link" href="/item/{{ $item->id }}">
+                    <div class="item-card">
+                        <div class="item-image-wrapper">
+                            <img src="{{ asset('storage/items/' . $item->image_path) }}" alt="{{ $item->name }}">
+                            @if (isset($item->purchase))
+                                <div class="sold-overlay">Sold</div>
+                            @endif
+                        </div>
+                        <div class="item-name">{{ $item->name }}</div>
                     </div>
-                    <div class="item-name">{{ $item->name }}</div>
-                </div>
-            </a>
+                </a>
             @endforeach
         </div>
     </div>

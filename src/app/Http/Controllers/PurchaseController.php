@@ -37,6 +37,10 @@ class PurchaseController extends Controller
             abort(403, '自分の商品は購入できません');
         }
 
+        if ($item->purchase()->exists()) {
+            return redirect()->back()->with('error', 'この商品はすでに購入されています。');
+        }
+
         Auth::user()->purchases()->create([
             'item_id' => $item->id,
             'payment_method' => $request->payment_method,

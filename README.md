@@ -49,6 +49,11 @@ php artisan migrate
 php artisan db:seed
 ```
 
+8. シンボリックリンク作成
+``` bash
+php artisan storage:link
+```
+
 ## メール認証機能(新規ユーザー登録時)
 使用サービス:Mailtrap https://mailtrap.io/
 

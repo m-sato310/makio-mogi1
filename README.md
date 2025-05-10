@@ -3,7 +3,9 @@
 ## 環境構築
 **Dockerビルド**
 1. git clone https://github.com/m-sato310/makio-mogi1.git
+
 2. DockerDesktopアプリを立ち上げる
+
 3. `docker-compose up -d --build`
 
 > *MacのM1・M2チップのPCの場合、`no matching manifest for linux/arm64/v8 in the manifest list entries`のメッセージが表示されビルドができないことがあります。
@@ -17,8 +19,11 @@ mysql:
 
 **Laravel環境構築**
 1. `docker-compose exec php bash`
+
 2. `composer install`
+
 3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+
 4. .envに以下の環境変数を追加
 ``` text
 DB_CONNECTION=mysql
@@ -28,6 +33,7 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
+
 5. アプリケーションキーの作成
 ``` bash
 php artisan key:generate
@@ -50,7 +56,6 @@ php artisan db:seed
 1. Mailtrapのアカウントにログイン後、ダッシュボードからUsernameとPasswordを確認  
 
 2. 以下の設定を .env に記載
-
 ``` text
 MAIL_MAILER=smtp
 MAIL_HOST=sandbox.smtp.mailtrap.io
@@ -75,7 +80,6 @@ php artisan config:cache
 1. stripeのアカウントにログイン後、ダッシュボードから「テストモード」のAPIキー（公開キー・シークレットキー）を取得
 
 2. 以下の設定を.envに記載
-
 ``` text
 STRIPE_KEY=（公開キー）
 STRIPE_SECRET=（シークレットキー）
@@ -97,6 +101,34 @@ php artisan config:cache
 | テストユーザー3 | user3@example.com      | password333    |
 | テストユーザー4 | user4@example.com      | password444    |
 | テストユーザー5 | user5@example.com      | password555    |
+
+## テスト実行手順
+1. MySQLのコンテナIDを確認
+```
+docker ps
+```
+
+2. MySQLコンテナにアクセス
+```
+docker exec -it コンテナID bash
+```
+
+3. rootユーザーでログイン(パスワードには’root’と入力)
+```
+mysql -u root -p
+```
+
+4. テスト用データベースを作成(実行後ログアウトし、MySQLコンテナからも出る)
+```
+CREATE DATABASE test_db;
+SHOW DATABASES;
+```
+
+5. テストを実行
+```
+docker-compose exec php bash
+php artisan test tests/Feature
+```
 
 ## 使用技術(実行環境)
 - PHP8.3.0

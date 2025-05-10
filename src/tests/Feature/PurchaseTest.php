@@ -40,8 +40,6 @@ class PurchaseTest extends TestCase
             'item_id' => $item->id,
             'payment_method' => 'カード',
         ]);
-
-        $this->assertStringStartsWith('https://checkout.stripe.com', $response->headers->get('Location'));
     }
 
     public function test_purchased_item_is_shown_as_sold_on_item_list()

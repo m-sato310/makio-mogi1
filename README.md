@@ -129,9 +129,15 @@ CREATE DATABASE test_db;
 SHOW DATABASES;
 ```
 
-5. テストを実行
+5. テスト用のテーブルを作成
 ```
 docker-compose exec php bash
+php artisan config:clear
+php artisan migrate --env=testing
+```
+
+6. テストを実行
+```
 php artisan test tests/Feature
 ```
 

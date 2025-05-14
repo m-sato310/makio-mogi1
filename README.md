@@ -54,6 +54,12 @@ php artisan db:seed
 php artisan storage:link
 ```
 
+> *"The stream or file could not be opened"エラーが発生した場合
+srcディレクトリにあるstorageディレクトリ以下の権限を変更*
+``` bash
+chmod -R 777 storage
+```
+
 ## メール認証機能(新規ユーザー登録時)
 使用サービス:Mailtrap https://mailtrap.io/
 
@@ -108,35 +114,30 @@ php artisan config:clear
 | テストユーザー5 | user5@example.com      | password555    |
 
 ## テスト実行手順
-1. MySQLのコンテナIDを確認
+1. MySQLコンテナにアクセス
 ``` bash
-docker ps
+docker-compose exec mysql bash
 ```
 
-2. MySQLコンテナにアクセス
-``` bash
-docker exec -it コンテナID bash
-```
-
-3. rootユーザーでログイン(パスワードには’root’と入力)
+2. rootユーザーでログイン(パスワードには’root’と入力)
 ``` bash
 mysql -u root -p
 ```
 
-4. テスト用データベースを作成(実行後ログアウトし、MySQLコンテナからも出る)
+3. テスト用データベースを作成(実行後ログアウトし、MySQLコンテナからも出る)
 ``` bash
 CREATE DATABASE test_db;
 SHOW DATABASES;
 ```
 
-5. テスト用のテーブルを作成
+4. テスト用のテーブルを作成
 ``` bash
 docker-compose exec php bash
 php artisan config:clear
 php artisan migrate --env=testing
 ```
 
-6. テストを実行
+5. テストを実行
 ``` bash
 php artisan test tests/Feature
 ```

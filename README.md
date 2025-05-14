@@ -74,7 +74,7 @@ MAIL_FROM_NAME="coachtechフリマ"
 
 3. 設定後にPHPコンテナ内で下記コマンドを実行
 ``` bash
-php artisan config:cache
+php artisan config:clear
 ```
 ※メール認証誘導画面の「認証はこちらから」押下でMailtrapのトップページに遷移します。ログイン後にinboxからメールを確認してください。
 
@@ -91,9 +91,9 @@ STRIPE_SECRET=（シークレットキー）
 ```
 
 3. 設定後にPHPコンテナ内で下記コマンドを実行
-```
+``` bash
 composer require stripe/stripe-php
-php artisan config:cache
+php artisan config:clear
 ```
 ※商品購入画面の「購入する」ボタン押下で購入自体は完了し、Stripe決済画面はその後に表示だけされるよう実装しています。
 
@@ -109,35 +109,35 @@ php artisan config:cache
 
 ## テスト実行手順
 1. MySQLのコンテナIDを確認
-```
+``` bash
 docker ps
 ```
 
 2. MySQLコンテナにアクセス
-```
+``` bash
 docker exec -it コンテナID bash
 ```
 
 3. rootユーザーでログイン(パスワードには’root’と入力)
-```
+``` bash
 mysql -u root -p
 ```
 
 4. テスト用データベースを作成(実行後ログアウトし、MySQLコンテナからも出る)
-```
+``` bash
 CREATE DATABASE test_db;
 SHOW DATABASES;
 ```
 
 5. テスト用のテーブルを作成
-```
+``` bash
 docker-compose exec php bash
 php artisan config:clear
 php artisan migrate --env=testing
 ```
 
 6. テストを実行
-```
+``` bash
 php artisan test tests/Feature
 ```
 
